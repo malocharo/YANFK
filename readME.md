@@ -13,7 +13,7 @@ First we'll need some tools: `libglib2.0-dev autoconf libpixman-1-dev`
 
 Then get qemu: `git clone git://git.qemu.org/qemu.git` and configure it to build for emulate raspi3.
 
-`cd qemu && ./configure --targer-list=aarch64-softmmu && make -j 4`
+`cd qemu && ./configure --target-list=aarch64-softmmu && make -j 4`
 
 It will use 4 core to build, if you have more change the number but it's a fast build even with 4.
 
