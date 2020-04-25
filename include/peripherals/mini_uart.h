@@ -2,6 +2,7 @@
 #define	_P_MINI_UART_H
 
 #include "peripherals/base.h"
+//https://github.com/raspberrypi/documentation/files/1888662/BCM2837-ARM-Peripherals.-.Revised.-.V2-1.pdf
 
 #define AUX_ENABLES     (PBASE+0x00215004)
 #define AUX_MU_IO_REG   (PBASE+0x00215040)
