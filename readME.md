@@ -25,4 +25,24 @@ First run `make` at project top dir. You now have a `kernel8.img`. Then launch q
 
 `path/to/qemu/aarch64-softmmu/qemu-system-arch64 -M raspi3 -kernel kernel8.img -serial null -serial stdio`
 
-The `-serial null -serial stdio` allow to have the mini-uart output on the terminal, right now you should see a nice "Hello,World" and then a end-less loop.
+The `-serial null -serial stdio` allow to have the mini-uart output on the terminal.
+
+## So far...
+So far we have a single cpu booting (qemu doesn't emulate multicore idk why).
+
+A little kprintf() like function that only work with as identifier:
+* %d for integer
+* %h for hexa
+* %c for char
+* %s for strings
+
+A function to get the running CPU id and another to get the current CPU exception level.
+
+## Planning on...
+intrinsics implementation of memset,memcpy etc in assembly to be BLAZZING fast and look like a cool kid.
+
+Scheduler with O(1) algorithm.
+
+Use space process and sys call.
+
+I will probably give up before that anyway.
