@@ -56,7 +56,7 @@ void uart_init ( void )
 
 // This function is required by printf function
 // MERCI MONSIEUR
-void putc ( void* p, char c)
+void putc ( char c)
 {
 	uart_send(c);
 }
