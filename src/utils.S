@@ -18,3 +18,9 @@ cpu_id:
 	mrs	x0, mpidr_el1		// Primary CPU has id 0x0
 	and	x0, x0,#0xFF
 	ret
+
+.globl excpt_lvl
+excpt_lvl:
+	mrs x0, CurrentEL
+	lsr x0, x0, #2 //cuz first 2 bits always zero
+	ret
