@@ -1,4 +1,5 @@
 #include "mm.h"
+#include "arm/sysreg.h"
 
 .data
 barrier: .byte 0
@@ -9,8 +10,23 @@ barrier: .byte 0
 .globl _start
 _start:
 	bl get_id_core		// Check processor id
-	cbz	x0, bss_init		// CPU #0 do BSS initialization, others wait
-	
+	cbz	x0, excpt		// CPU #0 do BSS initialization, others wait
+	b proc_hang
+
+excpt:
+	ldr	x0, =SCTLR_VALUE_MMU_DISABLED
+	msr	sctlr_el1, x0
+
+	ldr	x0, =HCR_VALUE
+	msr	hcr_el2, x0
+
+	ldr	x0, =SPSR_VALUE
+	msr	spsr_el2, x0
+
+	adr	x0, bss_init
+	msr	elr_el2, x0
+
+	eret
 
 bss_init:
 	// BSS Initialization

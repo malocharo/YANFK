@@ -36,7 +36,7 @@ A little kprintf() like function that only work with as identifier:
 * %c for char
 * %s for strings
 
-A function to get the running CPU id and another to get the current CPU exception level.
+A function to get the running CPU id and another to get the current CPU exception level. The cpu switch from exception level 2 to level 1 where it will be executed CH style.
 
 ## Planning on...
 intrinsics implementation of memset,memcpy etc in assembly to be BLAZZING fast and look like a cool kid.
